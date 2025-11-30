@@ -1,0 +1,191 @@
+/* components/Home/homeSection1.module.css */
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 80px;
+
+  background-image: url("/uploads/firstback.png");
+  background-size: cover;           /* Ensures the image covers entire area */
+  background-repeat: no-repeat;     /* Prevents tiling */
+  background-position: bottom;      /* Keeps image centered */
+}
+
+
+.container {
+  position: relative;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding: 0 3rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    padding: 0 5rem;
+  }
+}
+
+/* Import the HarryBeast font from public/fonts */
+@font-face {
+  font-family: 'HarryBeast';
+  src: url('/fonts/HarryBeastDisplay-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Content */
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  text-align: center;
+  padding: 4rem 0;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.content.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Logo Wrapper */
+.logoWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 3rem;
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+/* Logo Glow Effect */
+.logoGlow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 120%;
+  height: 120%;
+  background: radial-gradient(
+    circle,
+    rgba(168, 85, 247, 0.4) 0%,
+    rgba(109, 40, 217, 0.3) 25%,
+    rgba(216, 180, 254, 0.2) 50%,
+    transparent 70%
+  );
+  filter: blur(60px);
+  z-index: -1;
+  animation: pulse 4s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.6;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+}
+
+/* Logo Image */
+.logo {
+  width: 100%;
+  height: auto;
+  max-width: 300px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 30px rgba(168, 85, 247, 0.4));
+  transition: all 0.3s ease;
+}
+
+.logoWrapper:hover .logo {
+  filter: drop-shadow(0 0 40px rgba(168, 85, 247, 0.6));
+  transform: scale(1.05);
+}
+
+@media (min-width: 640px) {
+  .logo {
+    max-width: 400px;
+  }
+}
+
+@media (min-width: 768px) {
+  .logo {
+    max-width: 500px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .logo {
+    max-width: 600px;
+  }
+}
+
+/* Tagline */
+.tagline {
+  font-size: 1.75rem;
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  margin: 0;
+  font-family: "HarryBeast", Arial, Helvetica, sans-serif;
+  max-width: 600px;
+  animation: fadeInUp 1s ease-out 0.3s both;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (min-width: 640px) {
+  .tagline {
+    font-size: 1.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .tagline {
+    font-size: 1.75rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .tagline {
+    font-size: 2rem;
+  }
+}

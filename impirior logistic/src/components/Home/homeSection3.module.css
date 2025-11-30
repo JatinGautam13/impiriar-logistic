@@ -1,0 +1,455 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #000000;
+  padding: 2rem;
+  position: relative;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  overflow: hidden;
+}
+
+.container::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at 30% 40%, rgba(168, 85, 247, 0.1) 0%, transparent 40%),
+              radial-gradient(circle at 70% 60%, rgba(59, 130, 246, 0.1) 0%, transparent 40%);
+  animation: rotateGradient 20s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes rotateGradient {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.mainContent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: "HarryBeast", Arial, Helvetica, sans-serif;
+  gap: 1rem;
+  max-width: 1300px;
+  width: 100%;
+  animation: fadeIn 1s ease-out;
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.leftSection {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  flex-shrink: 0;
+}
+
+.rightSection {
+  flex: 1;
+  max-width: 600px;
+}
+
+.title {
+  color: #ffffff;
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 50px;
+  letter-spacing: 0.02em;
+  background: linear-gradient(135deg, #ffffff 0%, #a855f7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.para {
+  color: #d1d5db;
+  font-size: 1.125rem;
+  line-height: 1.6;
+  margin-top: 1rem;
+  font-family: "MyCustomFont", Arial, Helvetica, sans-serif;
+}
+
+.purposeBox {
+  width: 420px;
+  height: 90px;
+  color: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(200, 200, 200, 0.3);
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.purposeBox::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, var(--card-color, #a855f7) 0%, transparent 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.purposeBox:hover {
+  border-color: var(--card-color, rgba(180, 180, 180, 0.4));
+  transform: translateX(8px);
+  box-shadow: 0 10px 30px rgba(168, 85, 247, 0.3);
+}
+
+.purposeBox:hover::before {
+  opacity: 0.1;
+}
+
+.purposeBox.selected {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: var(--card-color, rgb(168, 85, 247));
+  border-width: 3px;
+  box-shadow: 0 10px 40px rgba(168, 85, 247, 0.4);
+  transform: translateX(8px);
+}
+
+.purposeBox.selected::before {
+  opacity: 0.15;
+}
+
+.iconCircle {
+  width: 60px;
+  height: 60px;
+  background: rgba(168, 85, 247, 0.2);
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+}
+
+.purposeBox:hover .iconCircle,
+.purposeBox.selected .iconCircle {
+  background: var(--card-color, rgb(168, 85, 247));
+  transform: scale(1.1) rotate(5deg);
+}
+
+.icon {
+  font-size: 2.2rem;
+  display: block;
+}
+
+.purposeInfo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.purposeTitle {
+  color: #ffffff;
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  display: block;
+}
+
+.purposeDescription {
+  color: #9ca3af;
+  font-size: 0.85rem;
+  line-height: 1.3;
+  font-family: "MyCustomFont", Arial, Helvetica, sans-serif;
+  display: block;
+}
+
+.selectedIndicator {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 35px;
+  height: 35px;
+  background: linear-gradient(135deg, rgb(109, 40, 217), rgb(168, 85, 247));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: scaleIn 0.3s ease-out;
+  z-index: 2;
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0) rotate(-180deg);
+  }
+  to {
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+.checkmark {
+  color: #ffffff;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.purposeGlow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(circle, var(--card-color, rgba(168, 85, 247, 0.4)) 0%, transparent 70%);
+  filter: blur(40px);
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.purposeBox:hover .purposeGlow,
+.purposeBox.selected .purposeGlow {
+  opacity: 0.6;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .mainContent {
+    gap: 4rem;
+  }
+
+  .title {
+    font-size: 2.5rem;
+  }
+
+  .purposeBox {
+    width: 380px;
+    height: 85px;
+  }
+}
+
+@media (max-width: 968px) {
+  .mainContent {
+    flex-direction: column-reverse;
+    gap: 3rem;
+    text-align: center;
+    margin-top: 30px;
+  }
+
+  .leftSection {
+    width: 100%;
+    max-width: 420px;
+  }
+
+  .rightSection {
+    max-width: 100%;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .purposeBox {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 1rem;
+    margin:40px 0;
+  }
+
+  .title {
+    font-size: 1.5rem;
+  }
+
+  .purposeBox {
+    height: 80px;
+    padding: 0 1.25rem;
+    width: 100%;
+  }
+
+  .iconCircle {
+    width: 50px;
+    height: 50px;
+  }
+
+  .icon {
+    font-size: 1.9rem;
+  }
+
+  .purposeTitle {
+    font-size: 1.1rem;
+  }
+
+  .purposeDescription {
+    font-size: 0.75rem;
+  }
+
+  .selectedIndicator {
+    width: 30px;
+    height: 30px;
+  }
+
+  .checkmark {
+    font-size: 1rem;
+  }
+}
+
+/* Add these new styles to your existing CSS */
+
+.textWrapper {
+  position: relative;
+}
+
+.para.truncated {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.expandButton {
+  background: linear-gradient(135deg, rgb(109, 40, 217), rgb(168, 85, 247));
+  color: #ffffff;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 30px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(168, 85, 247, 0.3);
+  font-family: "MyCustomFont", Arial, Helvetica, sans-serif;
+}
+
+.expandButton:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(168, 85, 247, 0.5);
+}
+
+.expandText {
+  letter-spacing: 0.02em;
+}
+
+.expandIcon {
+  font-size: 0.875rem;
+  transition: transform 0.3s ease;
+}
+
+.expandIcon.rotated {
+  transform: rotate(180deg);
+}
+
+/* Hide Read More button on desktop */
+@media (min-width: 969px) {
+  .expandButton {
+    display: none;
+  }
+  .para.truncated {
+    -webkit-line-clamp: unset;
+  }
+}
+
+/* Mobile: Show button + truncate */
+@media (max-width: 968px) {
+  .expandButton {
+    display: inline-flex;
+  }
+}
+
+
+
+
+
+
+
+/* Mobile-only: Show only 2 lines + Read More button */
+.textWrapper {
+  position: relative;
+}
+
+.truncated {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.readMoreBtn {
+  margin-top: 1.5rem;
+  background: linear-gradient(135deg, #6d28d9, #a855f7);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 30px;
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: "MyCustomFont", Arial, Helvetica, sans-serif;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow: 0 4px 15px rgba(168, 85, 247, 0.4);
+  transition: all 0.3s ease;
+}
+
+.readMoreBtn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(168, 85, 247, 0.6);
+}
+
+.arrowIcon {
+  font-size: 0.9rem;
+  transition: transform 0.3s ease;
+}
+
+.arrowIcon.rotated {
+  transform: rotate(180deg);
+}
+
+/* Hide button on desktop - keep full text visible */
+@media (min-width: 969px) {
+  .readMoreBtn {
+    display: none;
+  }
+  .truncated {
+    -webkit-line-clamp: unset;
+    overflow: visible;
+    text-overflow: unset;
+  }
+}
