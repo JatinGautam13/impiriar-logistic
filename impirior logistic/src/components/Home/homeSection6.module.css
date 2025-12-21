@@ -1,4 +1,4 @@
-/* NARROW & TALL CARD DESIGN - Replace your old CSS with this */
+/* TESTIMONIALS CAROUSEL - homeSection6.module.css */
 .container {
   display: flex;
   align-items: center;
@@ -24,7 +24,7 @@
   max-width: 1400px;
   display: flex;
   flex-direction: column;
-  gap: 3rem;
+  gap: 2rem;
   z-index: 1;
 }
 
@@ -33,12 +33,19 @@
   font-size: 3.5rem;
   font-weight: 700;
   text-align: center;
-  font-family: "HarryBeast", Arial, Helvetica, sans-serif;
   background: linear-gradient(135deg, #ffffff 0%, #a855f7 50%, #3b82f6 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   animation: fadeInDown 1s ease-out;
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  color: #9ca3af;
+  font-size: 1.2rem;
+  text-align: center;
+  margin-bottom: 1rem;
 }
 
 /* Carousel Wrapper */
@@ -50,47 +57,44 @@
 }
 
 /* Infinite Scroll */
-.reasonsList {
+.testimonialsList {
   display: flex;
   gap: 2rem;
-  animation: infiniteScroll 48s linear infinite;
+  animation: infiniteScroll 60s linear infinite;
   width: fit-content;
 }
 
-.reasonsList.paused { animation-play-state: paused; }
+.testimonialsList.paused {
+  animation-play-state: paused;
+}
 
 @keyframes infiniteScroll {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
 }
 
-/* NARROW & TALL CARDS */
-.reasonItem {
-  min-width: 310px;        /* Narrower */
-  max-width: 340px;
+/* Testimonial Cards */
+.testimonialItem {
+  min-width: 380px;
+  max-width: 420px;
   flex-shrink: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1.5rem;
   cursor: pointer;
   transition: transform 0.4s ease;
 }
 
-.reasonItem.hovered {
-  transform: scale(1.06);
+.testimonialItem:hover {
+  transform: scale(1.05);
   z-index: 10;
 }
 
-/* Taller Content Card */
-.reasonContent {
-  height: 450px;           /* Much taller */
+.testimonialContent {
+  height: 480px;
   width: 100%;
   background: rgba(255, 255, 255, 0.03);
   backdrop-filter: blur(12px);
   border: 2px solid rgba(168, 85, 247, 0.25);
   border-radius: 24px;
-  padding: 1.5rem;
+  padding: 2rem;
   display: flex;
   flex-direction: column;
   transition: all 0.4s ease;
@@ -98,7 +102,7 @@
   overflow: hidden;
 }
 
-.reasonContent::before {
+.testimonialContent::before {
   content: '';
   position: absolute;
   inset: 0;
@@ -107,102 +111,129 @@
   transition: opacity 0.4s ease;
 }
 
-.reasonItem:hover .reasonContent::before { opacity: 1; }
-.reasonItem:hover .reasonContent {
+.testimonialItem:hover .testimonialContent::before {
+  opacity: 1;
+}
+
+.testimonialItem:hover .testimonialContent {
   border-color: #a855f7;
   box-shadow: 0 15px 50px rgba(168, 85, 247, 0.35);
 }
 
-/* Taller Image */
-.imageContainer {
-  height: 280px;           /* Taller image */
-  border-radius: 18px;
-  overflow: hidden;
-  transition: transform 0.4s ease;
-}
-
-.reasonItem:hover .imageContainer { transform: scale(1.06); }
-.reasonItem:hover .reasonImage { transform: scale(1.12); }
-
-.imageOverlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, rgba(168, 85, 247, 0.35), rgba(59, 130, 246, 0.35));
-  opacity: 0;
-  transition: opacity 0.4s ease;
-}
-.reasonItem:hover .imageOverlay { opacity: 1; }
-
-/* Text fills remaining space */
-.textContent {
-  flex: 1;
+/* Header Section */
+.header {
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding-top: 0.5rem;
+  gap: 1.5rem;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  position: relative;
+  z-index: 1;
 }
 
-.reasonTitle {
-  color: #ffffff;
-  font-size: 1.5rem;
-  font-weight: 600;
-  font-family: "HarryBeast", Arial, Helvetica, sans-serif;
+.imageWrapper {
+  position: relative;
+  flex-shrink: 0;
 }
 
-.reasonDescription {
-  color: #d1d5db;
-  font-size: 0.95rem;
-  line-height: 1.7;
-  font-family: "MyCustomFont", sans-serif;
-}
-
-/* Number Circle */
-.reasonNumber {
+.profileImage {
   width: 80px;
   height: 80px;
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
+  border-radius: 50%;
+  object-fit: cover;
   border: 3px solid rgba(168, 85, 247, 0.4);
+  transition: transform 0.3s ease;
+}
+
+.testimonialItem:hover .profileImage {
+  transform: scale(1.1);
+}
+
+.courseIcon {
+  position: absolute;
+  bottom: -5px;
+  right: -5px;
+  width: 32px;
+  height: 32px;
+  background: linear-gradient(135deg, #a855f7, #3b82f6);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.5s ease;
+  font-size: 1rem;
+  border: 2px solid #000;
 }
 
-.reasonItem:hover .reasonNumber {
-  border-color: #a855f7;
-  box-shadow: 0 0 35px rgba(168, 85, 247, 0.7);
-  transform: rotate(360deg);
+.studentInfo {
+  flex: 1;
 }
 
-.numberText {
+.studentName {
+  color: #ffffff;
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin: 0 0 0.25rem 0;
+}
+
+.courseName {
   color: #a855f7;
-  font-size: 2rem;
+  font-size: 1rem;
+  font-weight: 500;
+  margin: 0 0 0.5rem 0;
+}
+
+.rating {
+  display: flex;
+  gap: 0.2rem;
+}
+
+.star {
+  font-size: 1rem;
+}
+
+/* Quote and Text */
+.quoteIcon {
+  color: rgba(168, 85, 247, 0.3);
+  font-size: 5rem;
   font-weight: 700;
-  font-family: "HarryBeast", sans-serif;
+  line-height: 0.5;
+  margin-bottom: 1rem;
+  font-family: Georgia, serif;
+  position: relative;
+  z-index: 1;
 }
 
-.numberGlow {
-  position: absolute;
-  inset: 0;
-  margin: auto;
-  width: 80%;
-  height: 80%;
-  background: radial-gradient(circle, rgba(168, 85, 247, 0.5), transparent 70%);
-  filter: blur(20px);
-  opacity: 0;
-  transition: opacity 0.4s ease;
+.testimonialText {
+  color: #d1d5db;
+  font-size: 1.05rem;
+  line-height: 1.8;
+  flex: 1;
+  margin-bottom: 1.5rem;
+  position: relative;
+  z-index: 1;
 }
 
-.reasonItem:hover .numberGlow {
-  opacity: 1;
-  animation: pulse 2s ease-in-out infinite;
+/* Achievement Badge */
+.achievement {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
 }
 
-@keyframes pulse {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.25); }
+.achievementBadge {
+  background: linear-gradient(135deg, rgba(168, 85, 247, 0.2), rgba(59, 130, 246, 0.2));
+  border: 2px solid rgba(168, 85, 247, 0.4);
+  border-radius: 50px;
+  padding: 0.6rem 1.2rem;
+  color: #ffffff;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.testimonialItem:hover .achievementBadge {
+  border-color: #a855f7;
+  background: linear-gradient(135deg, rgba(168, 85, 247, 0.3), rgba(59, 130, 246, 0.3));
 }
 
 /* Mobile Hint */
@@ -215,24 +246,133 @@
   border: 2px solid rgba(168, 85, 247, 0.4);
   border-radius: 50px;
   padding: 0.8rem 1.6rem;
-  margin: 0rem auto 0;
+  margin: 2rem auto 0;
+  color: #ffffff;
   animation: fadeIn 1s ease-out 1s backwards;
-  font-family: "MyCustomFont", sans-serif;
 }
 
+.hintIcon {
+  font-size: 1.2rem;
+}
+
+.hintText {
+  font-size: 0.95rem;
+}
+
+/* Animations */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Responsive Design */
 @media (max-width: 968px) {
-  .mobileHint { display: flex; }
-  .mainTitle { font-size: 2.5rem; }
-  .reasonItem { min-width: 290px; }
-  .reasonContent { height: 380px; }
-  .imageContainer { height: 260px; }
-  .reasonsList { animation-duration: 60s; }
+  .mobileHint {
+    display: flex;
+  }
+  
+  .mainTitle {
+    font-size: 2.8rem;
+  }
+  
+  .testimonialItem {
+    min-width: 350px;
+  }
+  
+  .testimonialContent {
+    height: 450px;
+  }
+  
+  .testimonialsList {
+    animation-duration: 70s;
+  }
+}
+
+@media (max-width: 640px) {
+  .container {
+    padding: 3rem 1rem;
+  }
+  
+  .mainTitle {
+    font-size: 2.2rem;
+  }
+  
+  .subtitle {
+    font-size: 1rem;
+  }
+  
+  .testimonialItem {
+    min-width: 320px;
+  }
+  
+  .testimonialContent {
+    height: 420px;
+    padding: 1.5rem;
+  }
+  
+  .profileImage {
+    width: 70px;
+    height: 70px;
+  }
+  
+  .studentName {
+    font-size: 1.2rem;
+  }
+  
+  .courseName {
+    font-size: 0.9rem;
+  }
+  
+  .quoteIcon {
+    font-size: 4rem;
+  }
+  
+  .testimonialText {
+    font-size: 0.95rem;
+  }
+  
+  .testimonialsList {
+    animation-duration: 80s;
+  }
 }
 
 @media (max-width: 480px) {
-  .reasonItem { min-width: 270px; }
-  .reasonContent { height: 300px; padding: 1.2rem; }
-  .imageContainer { height: 240px; }
-  .reasonNumber { width: 60px; height: 60px; }
-  .numberText { font-size: 1.6rem; }
+  .testimonialItem {
+    min-width: 290px;
+  }
+  
+  .testimonialContent {
+    height: 400px;
+    padding: 1.2rem;
+  }
+  
+  .header {
+    gap: 1rem;
+  }
+  
+  .profileImage {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .courseIcon {
+    width: 28px;
+    height: 28px;
+    font-size: 0.85rem;
+  }
 }

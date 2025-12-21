@@ -13,9 +13,8 @@ const HomeSection3 = () => {
     { id: 3, title: 'Skill Enhanced & Interest', icon: '🚀', description: 'Follow your passion and grow', color: '#10b981' },
   ];
 
-  const fullText = `Understanding your learning motivation is crucial for success. Whether you're advancing your career, pursuing academic excellence, or simply following your passion, defining your purpose helps create a personalized learning path. Each goal requires a unique approach, and we're here to guide you through every step of your language learning journey.
-
-Choose what drives you forward and let us tailor the perfect learning experience that aligns with your ambitions and lifestyle.`;
+  const fullText = `Understanding why you're learning a language is the first step toward success. Whether you’re aiming for a dream job, preparing for higher studies, or simply exploring a new passion — defining your purpose helps us build a personalized learning path just for you.
+Every goal requires a unique approach, and our expert team ensures you receive the right guidance at every step of your journey.`;
 
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth <= 968);

@@ -16,12 +16,55 @@
   background-position: bottom;      /* Keeps image centered */
 }
 
+/* components/Home/homeSection1.module.css */
+
+/* Import the HarryBeast font */
+@font-face {
+  font-family: 'HarryBeast';
+  src: url('/fonts/HarryBeastDisplay-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* .hero {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 80px;
+  background-image: url("/uploads/firstback.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: bottom;
+} */
+
+/* Overlay for better text readability */
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(109, 40, 217, 0.2) 0%,
+    rgba(168, 85, 247, 0.15) 50%,
+    rgba(216, 180, 254, 0.1) 100%
+  );
+  z-index: 1;
+}
 
 .container {
   position: relative;
+  z-index: 2;
   max-width: 1280px;
   margin: 0 auto;
-  padding: 0 1rem;
+  padding: 0 1.5rem;
   width: 100%;
 }
 
@@ -35,15 +78,6 @@
   .container {
     padding: 0 5rem;
   }
-}
-
-/* Import the HarryBeast font from public/fonts */
-@font-face {
-  font-family: 'HarryBeast';
-  src: url('/fonts/HarryBeastDisplay-Regular.woff2') format('woff2');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
 }
 
 /* Content */
@@ -65,100 +99,366 @@
   transform: translateY(0);
 }
 
-/* Logo Wrapper */
-.logoWrapper {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 3rem;
-  animation: float 6s ease-in-out infinite;
+/* Heading Wrapper */
+.headingWrapper {
+  margin-bottom: 1.5rem;
 }
 
-@keyframes float {
-  0%, 100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-20px);
-  }
-}
-
-/* Logo Glow Effect */
-.logoGlow {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 120%;
-  height: 120%;
-  background: radial-gradient(
-    circle,
-    rgba(168, 85, 247, 0.4) 0%,
-    rgba(109, 40, 217, 0.3) 25%,
-    rgba(216, 180, 254, 0.2) 50%,
-    transparent 70%
-  );
-  filter: blur(60px);
-  z-index: -1;
-  animation: pulse 4s ease-in-out infinite;
-}
-
-@keyframes pulse {
-  0%, 100% {
-    opacity: 0.6;
-    transform: translate(-50%, -50%) scale(1);
-  }
-  50% {
-    opacity: 1;
-    transform: translate(-50%, -50%) scale(1.1);
-  }
-}
-
-/* Logo Image */
-.logo {
-  width: 100%;
-  height: auto;
-  max-width: 300px;
-  object-fit: contain;
-  filter: drop-shadow(0 0 30px rgba(168, 85, 247, 0.4));
-  transition: all 0.3s ease;
-}
-
-.logoWrapper:hover .logo {
-  filter: drop-shadow(0 0 40px rgba(168, 85, 247, 0.6));
-  transform: scale(1.05);
+/* Main Heading */
+.mainHeading {
+  font-family: "HarryBeast", Arial, Helvetica, sans-serif;
+  font-size: 2.5rem;
+  line-height: 1.2;
+  font-weight: 400;
+  color: #ffffff;
+  margin: 0;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  animation: fadeInUp 0.8s ease-out both;
 }
 
 @media (min-width: 640px) {
-  .logo {
-    max-width: 400px;
+  .mainHeading {
+    font-size: 3.5rem;
   }
 }
 
 @media (min-width: 768px) {
-  .logo {
-    max-width: 500px;
+  .mainHeading {
+    font-size: 4.5rem;
   }
 }
 
 @media (min-width: 1024px) {
-  .logo {
-    max-width: 600px;
+  .mainHeading {
+    font-size: 5.5rem;
   }
 }
 
-/* Tagline */
-.tagline {
-  font-size: 1.75rem;
-  line-height: 1.75;
-  color: rgba(255, 255, 255, 0.8);
+/* Gradient Text */
+.gradientText {
+  background: linear-gradient(
+    135deg,
+    #a855f7 0%,
+    #d8b4fe 50%,
+    #f0abfc 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: inline-block;
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0%, 100% {
+    filter: brightness(1);
+  }
+  50% {
+    filter: brightness(1.4);
+  }
+}
+
+/* Subtitle */
+
+.subtitle1 {
+  font-size: 1.8rem;
+  line-height: 1.6;
+  background: linear-gradient(
+    135deg,
+    #a855f7 0%,
+    #d8b4fe 50%,
+    #f0abfc 100%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: "HarryBeast", Arial, Helvetica, sans-serif;
   font-weight: 400;
   letter-spacing: 0.02em;
-  margin: 0;
-  font-family: "HarryBeast", Arial, Helvetica, sans-serif;
+  margin: 0 0 1.5rem 0;
   max-width: 600px;
-  animation: fadeInUp 1s ease-out 0.3s both;
+  animation: fadeInUp 0.8s ease-out 0.1s both;
+}
+
+.subtitle {
+  font-size: 1.125rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 300;
+  letter-spacing: 0.02em;
+  margin: 0 0 2.5rem 0;
+  max-width: 600px;
+  animation: fadeInUp 0.8s ease-out 0.2s both;
+}
+
+@media (min-width: 640px) {
+  .subtitle {
+    font-size: 1.25rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .subtitle {
+    font-size: 1.375rem;
+  }
+}
+
+/* CTA Wrapper */
+.ctaWrapper {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  animation: fadeInUp 0.8s ease-out 0.4s both;
+}
+
+/* Primary CTA Button */
+.ctaButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 2.5rem;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #ffffff;
+  background: linear-gradient(135deg, #a855f7 0%, #6d28d9 100%);
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 30px rgba(168, 85, 247, 0.4);
+  position: relative;
+  overflow: hidden;
+}
+
+.ctaButton::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.5s ease;
+}
+
+.ctaButton:hover::before {
+  left: 100%;
+}
+
+.ctaButton:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 40px rgba(168, 85, 247, 0.6);
+}
+
+.ctaButton:active {
+  transform: translateY(-1px);
+}
+
+.arrow {
+  font-size: 1.5rem;
+  transition: transform 0.3s ease;
+}
+
+.ctaButton:hover .arrow {
+  transform: translateX(5px);
+}
+
+/* Secondary CTA Button */
+.ctaButtonSecondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 2.5rem;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.ctaButtonSecondary:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(168, 85, 247, 0.6);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(168, 85, 247, 0.3);
+}
+
+/* Floating Frying Pan Image */
+.floatingImage {
+  position: absolute;
+  left: 5%;
+  top: 60%;
+  transform: translateY(-50%);
+  z-index: 2;
+  animation: floatSide 6s ease-in-out infinite;
+  opacity: 0;
+  animation: fadeInFloat 1s ease-out 0.5s forwards, floatSide 6s ease-in-out 1.5s infinite;
+}
+
+@media (max-width: 1024px) {
+  .floatingImage {
+    opacity: 0.3;
+    left: -10%;
+  }
+}
+
+@media (max-width: 768px) {
+  .floatingImage {
+    display: none;
+  }
+}
+
+.fryingImage {
+  width: 100%;
+  height: auto;
+  max-width: 350px;
+  filter: drop-shadow(0 20px 40px rgba(168, 85, 247, 0.4));
+  transition: all 0.3s ease;
+}
+
+@keyframes floatSide {
+  0%, 100% {
+    transform: translateY(-50%) rotate(-5deg);
+  }
+  50% {
+    transform: translateY(-55%) rotate(5deg);
+  }
+}
+
+@keyframes fadeInFloat {
+  from {
+    opacity: 0;
+    transform: translateY(-30%) translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(-50%) translateX(0);
+  }
+}
+
+/* Floating Flags */
+.floatingFlags {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.flag {
+  position: absolute;
+  font-size: 3rem;
+  opacity: 0;
+  animation: floatFlag 15s ease-in-out infinite;
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.3));
+}
+
+@media (max-width: 768px) {
+  .flag {
+    font-size: 2rem;
+  }
+}
+
+.flag1 { animation-duration: 12s; }
+.flag2 { animation-duration: 15s; }
+.flag3 { animation-duration: 18s; }
+.flag4 { animation-duration: 14s; }
+.flag5 { animation-duration: 16s; }
+.flag6 { animation-duration: 13s; }
+.flag7 { animation-duration: 17s; }
+.flag8 { animation-duration: 19s; }
+
+@keyframes floatFlag {
+  0% {
+    opacity: 0;
+    transform: translateY(100vh) rotate(0deg) scale(0.5);
+  }
+  10% {
+    opacity: 0.8;
+  }
+  90% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-100px) rotate(360deg) scale(1);
+  }
+}
+
+/* Floating Elements */
+.floatingElements {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.floatCircle {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(168, 85, 247, 0.2), transparent);
+  filter: blur(80px);
+}
+
+.circle1 {
+  width: 400px;
+  height: 400px;
+  top: 10%;
+  right: 10%;
+  animation: float1 10s ease-in-out infinite;
+}
+
+.circle2 {
+  width: 500px;
+  height: 500px;
+  top: 60%;
+  right: 20%;
+  animation: float2 12s ease-in-out infinite;
+}
+
+.circle3 {
+  width: 350px;
+  height: 350px;
+  bottom: 10%;
+  left: 50%;
+  animation: float3 14s ease-in-out infinite;
+}
+
+@keyframes float1 {
+  0%, 100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(40px, -40px);
+  }
+}
+
+@keyframes float2 {
+  0%, 100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(-50px, 50px);
+  }
+}
+
+@keyframes float3 {
+  0%, 100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(30px, -50px);
+  }
 }
 
 @keyframes fadeInUp {
@@ -172,20 +472,28 @@
   }
 }
 
-@media (min-width: 640px) {
-  .tagline {
-    font-size: 1.5rem;
+
+.flag {
+  position: absolute;
+  opacity: 0;
+  animation: floatFlag 15s ease-in-out infinite;
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.3));
+
+  width: 65px;   /* NEW */
+  height: 56px;  /* NEW (16:9 ratio approx) */
+}
+
+@media (max-width: 768px) {
+  .flag {
+    width: 56px;   /* smaller on mobile */
+    height: 40px;
   }
 }
 
-@media (min-width: 768px) {
-  .tagline {
-    font-size: 1.75rem;
-  }
-}
-
-@media (min-width: 1024px) {
-  .tagline {
-    font-size: 2rem;
-  }
+.flagImage {
+  display: block;
+  border-radius: 6px;
+  width: 100%;    /* fill parent */
+  height: 100%;   /* fill parent */
+  object-fit: cover;
 }

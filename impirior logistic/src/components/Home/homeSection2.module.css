@@ -3,17 +3,14 @@
   display: flex;
   align-items: center;  
   justify-content: center;
-  background: #000000;
+  /* background: #000000; */
   padding: 2rem;
   position: relative;
 
 
 
   
-  background-image: url("/uploads/centerbg.jpg");
-  background-size: cover;           /* Ensures the image covers entire area */
-  background-repeat: no-repeat;     /* Prevents tiling */
-  background-position: bottom;  
+ 
 }
 
 .mainContent {

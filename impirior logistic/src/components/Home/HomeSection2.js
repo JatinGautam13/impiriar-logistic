@@ -11,14 +11,14 @@ const HomeSection2 = () => {
 
   // Languages to show in the language box
   const languages = [
-    { name: 'France', emoji: '🇬🇧', image: '/uploads/icons8-france-48.png' },
+    { name: 'French', emoji: '🇬🇧', image: '/uploads/icons8-france-48.png' },
     { name: 'German', emoji: '🇩🇪', image: '/uploads/icons8-germany-96.png' },
     { name: 'Spanish', emoji: '🇪🇸', image: '/uploads/icons8-spain-48.png' },
     { name: 'Japanese', emoji: '🇯🇵', image: '/uploads/icons8-japan-48.png' },
     { name: 'Korean', emoji: 'kr', image: '/uploads/icons8-south-korea-48.png' },
   ];
 
-  const fullParagraph = "Text section on the left with large, bold typography. Language boxes on the light with flag circles inside. Hover effects with smooth transitions and glow. Selected state with blue glow and animated border. Fully responsive - stacks vertically on mobile. Modern glassmorphic boxes with subtle transparency. The layout now matches the first image you provided - clean and minimal with the text on one side and the language selection boxes on the other!";
+  const fullParagraph = "Master any global language with world-class tutors, immersive practice, and a premium learning experience built for your success. Whether you're learning for studies, career, travel, or personal passion — our tailored programs and interactive tools help you become fluent faster than ever. Select your language and start your journey today.";
 
   // Check if mobile view
   useEffect(() => {

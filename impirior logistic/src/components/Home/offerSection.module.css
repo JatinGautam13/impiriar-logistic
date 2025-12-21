@@ -1,0 +1,333 @@
+.offerSection {
+  width: 100%;
+  background: #000000;
+  padding: 4rem 1.5rem;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* subtle moving glow, similar to HomeSection3 */
+.offerSection::before {
+  content: "";
+  position: absolute;
+  inset: -40%;
+  background:
+    radial-gradient(circle at 20% 0%, rgba(168, 85, 247, 0.18) 0%, transparent 50%),
+    radial-gradient(circle at 80% 100%, rgba(59, 130, 246, 0.18) 0%, transparent 55%);
+  opacity: 0.9;
+  animation: offerGlow 22s linear infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes offerGlow {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.container {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  gap: 3rem;
+  align-items: stretch;
+  justify-content: space-between;
+  font-family: "HarryBeast", Arial, Helvetica, sans-serif;
+}
+
+/* LEFT */
+
+.left {
+  flex: 1;
+  max-width: 460px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 1rem;
+  border-radius: 999px;
+  border: 1px solid rgba(209, 213, 219, 0.25);
+  background: rgba(15, 23, 42, 0.8);
+  color: #e5e7eb;
+  font-size: 1.99rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  width: 100%;              /* full width */
+  justify-content: center;
+}
+
+.badge::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: #22c55e;
+  box-shadow: 0 0 12px rgba(34, 197, 94, 0.9);
+}
+
+.heading {
+  font-size: clamp(2.1rem, 4vw, 2.8rem);
+  line-height: 1.15;
+  margin: 0;
+  color: #ffffff;
+  letter-spacing: 0.02em;
+}
+
+.heading span {
+  display: block;
+  background: linear-gradient(135deg, #ffffff, #a855f7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.subtext {
+  margin: 0;
+  color: #9ca3af;
+  font-size: 1rem;
+  line-height: 1.7;
+  max-width: 380px;
+  font-family: "MyCustomFont", Arial, Helvetica, sans-serif;
+}
+
+/* ribbon-style element */
+
+.ribbon {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  padding: 0.7rem 1.5rem;
+  background: linear-gradient(135deg, #6d28d9, #a855f7);
+  border-radius: 999px;
+  box-shadow: 0 10px 30px rgba(168, 85, 247, 0.55);
+  overflow: visible;
+}
+
+.ribbon::before,
+.ribbon::after {
+  content: "";
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  background: inherit;
+  top: 50%;
+  transform: translateY(-50%) rotate(45deg);
+  opacity: 0.8;
+}
+
+.ribbon::before {
+  left: -8px;
+}
+
+.ribbon::after {
+  right: -8px;
+}
+
+.ribbonText {
+  color: #f9fafb;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* RIGHT */
+
+.right {
+  flex: 1.4;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.offerList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.offerItem {
+  position: relative;
+  display: flex;
+  gap: 1.1rem;
+  padding: 1rem 1.25rem;
+  border-radius: 22px;
+  border: 1px solid rgba(148, 163, 184, 0.4);
+  background: linear-gradient(
+    135deg,
+    rgba(15, 23, 42, 0.9),
+    rgba(15, 23, 42, 0.8)
+  );
+  backdrop-filter: blur(14px);
+  box-shadow: 0 14px 50px rgba(15, 23, 42, 0.75);
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.offerItem:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 60px rgba(15, 23, 42, 0.95);
+  border-color: rgba(168, 85, 247, 0.9);
+}
+
+.offerAccent {
+  position: absolute;
+  inset: -40%;
+  background: radial-gradient(circle at 0% 0%, rgba(168, 85, 247, 0.35), transparent 55%);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  pointer-events: none;
+}
+
+.offerItem:hover .offerAccent {
+  opacity: 1;
+}
+
+.offerIndex {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: 16px;
+  background: rgba(15, 23, 42, 0.9);
+  border: 1px solid rgba(148, 163, 184, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #e5e7eb;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.offerContent {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.offerTitle {
+  margin: 0;
+  color: #ffffff;
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: 0.11em;
+  font-family: "MyCustomFont", Arial, Helvetica, sans-serif;
+}
+
+.offerDescription {
+  margin: 0;
+  color: #cbd5f5;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  font-family:  Arial, Helvetica, sans-serif;
+}
+
+.note {
+  margin: 0.5rem 0 0;
+  color: #9ca3af;
+  font-size: 0.8rem;
+  font-family: "MyCustomFont", Arial, Helvetica, sans-serif;
+}
+
+/* CTA button */
+.ctaButton {
+  margin-top: 1.5rem;
+  margin-left: auto;
+  margin-right: auto;      /* center horizontally */
+  padding: 0.9rem 2rem;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  background: linear-gradient(135deg, #6d28d9, #a855f7);
+  color: #f9fafb;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  box-shadow: 0 12px 28px rgba(168, 85, 247, 0.55);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+}
+
+.ctaButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 40px rgba(168, 85, 247, 0.8);
+  opacity: 0.95;
+}
+
+.ctaButton:active {
+  transform: translateY(0);
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.9);
+}
+/* RESPONSIVE */
+
+@media (max-width: 1024px) {
+  .offerSection {
+    padding: 3.5rem 1.25rem;
+  }
+
+  .container {
+    gap: 2.5rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .left {
+    max-width: none;
+  }
+
+  .subtext {
+    max-width: none;
+  }
+
+  .right {
+    width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .offerSection {
+    padding: 3rem 1.25rem;
+  }
+
+  .offerItem {
+    padding: 0.9rem 1rem;
+  }
+
+  .offerIndex {
+    width: 40px;
+    height: 40px;
+    font-size: 0.9rem;
+  }
+
+  .offerTitle {
+    font-size: 1rem;
+  }
+
+  .offerDescription {
+    font-size: 0.9rem;
+  }
+
+  .ctaButton {
+    width: 100%;
+    text-align: center;
+  }
+}

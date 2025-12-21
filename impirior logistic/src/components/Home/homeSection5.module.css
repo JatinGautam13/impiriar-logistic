@@ -7,6 +7,13 @@
   position: relative;
   min-height: 100vh;
   overflow: hidden;
+
+
+
+   background-image: url("/uploads/centerbg.jpg");
+  background-size: cover;           /* Ensures the image covers entire area */
+  background-repeat: no-repeat;     /* Prevents tiling */
+  background-position: bottom;  
 }
 
 .container::before {

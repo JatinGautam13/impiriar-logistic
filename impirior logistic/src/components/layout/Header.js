@@ -113,9 +113,9 @@ const Header = () => {
           {/* Logo */}
           <Link href="/" className={styles.logo}>
             <Image 
-              src="/uploads/logooooooo.png"
+              src="/uploads/im[p new.png"
               alt="Imperial Linguistics Logo"
-              width={150}
+              width={200}
               height={50}
               className={styles.logoImage}
               priority
