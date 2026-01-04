@@ -39,41 +39,7 @@ const faqs = [
       "Yes! All students receive comprehensive study materials including interactive e-books, practice worksheets, audio lessons, video tutorials, and access to our proprietary learning platform with AI-powered exercises and progress tracking.",
     icon: "📚",
   },
-  {
-    id: 6,
-    question: "What if I need to cancel or reschedule a class?",
-    answer:
-      "You can reschedule or cancel classes up to 24 hours in advance without any charges. We understand life gets busy, so we've made our policies flexible. Just notify your tutor or use our platform to make changes.",
-    icon: "🔄",
-  },
-  {
-    id: 7,
-    question: "Will I get a certificate after completion?",
-    answer:
-      "Absolutely! Upon completing your course, you'll receive a globally recognized certificate that validates your language proficiency. Our certificates are accepted by universities, employers, and immigration authorities worldwide.",
-    icon: "🏆",
-  },
-  {
-    id: 8,
-    question: "How much do the courses cost?",
-    answer:
-      "Pricing varies by course type and duration. We offer flexible packages starting from affordable monthly subscriptions to comprehensive annual plans. Contact us for a personalized quote, and ask about our current promotions and student discounts.",
-    icon: "💰",
-  },
-  {
-    id: 9,
-    question: "Can I try a demo class before enrolling?",
-    answer:
-      "Yes! We offer a free 30-minute trial class with no commitment required. Experience our teaching methodology, meet your potential tutor, and explore our platform before making any decision. Book your trial class today!",
-    icon: "🎯",
-  },
-  {
-    id: 10,
-    question: "What technical requirements do I need?",
-    answer:
-      "You'll need a stable internet connection, a computer or tablet with a webcam and microphone, and a modern web browser. Our platform works seamlessly on Windows, Mac, iOS, and Android devices. We also provide technical support to help you get started.",
-    icon: "💻",
-  },
+ 
 ];
 
 const FAQSection1 = () => {

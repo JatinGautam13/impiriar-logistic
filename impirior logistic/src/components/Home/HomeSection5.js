@@ -64,6 +64,9 @@ const HomeSection5 = () => {
                 <div className={styles.statLabel}>Success Rate</div>
               </div>
             </div>
+            <div>
+              <div className={styles.ctaSubtitle}>these are'nt ads, these are results.</div>
+            </div>
 
             <button className={styles.ctaButton}>
               <span className={styles.buttonText}>Book 1:1 Now</span>

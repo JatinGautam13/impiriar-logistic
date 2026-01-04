@@ -41,7 +41,8 @@ const HomeSection1 = () => {
                </p>
           {/* Subtitle */}
           <p className={styles.subtitle}>
-            Learn languages that open doors to international opportunities
+            Learn languages that Unlock your learning advantage
+            {/* open doors to international opportunities */}
           </p>
 
           {/* CTA Buttons */}

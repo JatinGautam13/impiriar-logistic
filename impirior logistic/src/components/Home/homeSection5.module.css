@@ -116,7 +116,7 @@
 .statsContainer {
   display: flex;
   gap: 2rem;
-  margin-bottom: 2.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .statBox {
@@ -138,6 +138,17 @@
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.05em;
+}
+
+/* CTA Subtitle */
+.ctaSubtitle {
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  font-family: "HarryBeast", Arial, Helvetica, sans-serif;
+  text-align: left;
+  letter-spacing: 0.15em;
 }
 
 /* CTA Button */

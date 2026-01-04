@@ -1,5 +1,5 @@
 .container {
-  min-height: 100vh;
+  min-height: 80vh;
   display: flex;
   align-items: center;  
   justify-content: center;
@@ -201,6 +201,7 @@
 @media (max-width: 480px) {
   .container {
     padding: 1rem;
+    
   }
 
   .title {

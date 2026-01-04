@@ -132,10 +132,10 @@ const ReasonsSection = () => {
           </div>
         </div>
 
-        <div className={styles.mobileHint}>
+        {/* <div className={styles.mobileHint}>
           <span className={styles.hintIcon}>👆</span>
           <span className={styles.hintText}>Swipe to explore all reasons</span>
-        </div>
+        </div> */}
       </div>
     </div>
   );
