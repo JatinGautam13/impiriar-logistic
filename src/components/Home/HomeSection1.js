@@ -5,6 +5,22 @@ import Image from "next/image";
 import { useState, useEffect } from "react";
 import styles from "./homeSection1.module.css";
 
+const hashToUnit = (input) => {
+  // Deterministic 32-bit FNV-1a hash -> [0, 1)
+  let hash = 2166136261;
+  for (let i = 0; i < input.length; i += 1) {
+    hash ^= input.charCodeAt(i);
+    hash = Math.imul(hash, 16777619);
+  }
+  return (hash >>> 0) / 4294967296;
+};
+
+const seededPercent = (seed, min = 10, max = 90) => {
+  const unit = hashToUnit(seed);
+  const value = min + unit * (max - min);
+  return `${value.toFixed(4)}%`;
+};
+
 const flags = [
   { code: "FR", name: "France", src: "/uploads/icons8-france-48.png" },
   { code: "DE", name: "Germany", src: "/uploads/icons8-germany-96.png" },
@@ -15,6 +31,13 @@ const flags = [
   { code: "CN", name: "China", src: "/uploads/icons8-china-48.png" },
   { code: "IT", name: "Italy", src: "/uploads/icons8-italy-48.png" },
 ];
+
+const flagsWithLayout = flags.map((flag, index) => ({
+  ...flag,
+  animationDelay: `${index * 0.5}s`,
+  left: seededPercent(`${flag.code}:x`),
+  top: seededPercent(`${flag.code}:y`),
+}));
 
 const HomeSection1 = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -71,14 +94,14 @@ const HomeSection1 = () => {
 
       {/* Floating Flags (SVG files) */}
       <div className={styles.floatingFlags}>
-        {flags.map((flag, index) => (
+        {flagsWithLayout.map((flag, index) => (
           <div
             key={flag.code}
             className={`${styles.flag} ${styles[`flag${index + 1}`]}`}
             style={{
-              animationDelay: `${index * 0.5}s`,
-              left: `${Math.random() * 80 + 10}%`,
-              top: `${Math.random() * 80 + 10}%`,
+              animationDelay: flag.animationDelay,
+              left: flag.left,
+              top: flag.top,
             }}
             aria-label={flag.name}
           >
